@@ -3,12 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>versioneye</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.0</version>
-    </parent>
-
+    <groupId>com.versioneye</groupId>
     <artifactId>versioneye-core-j</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -44,7 +39,28 @@
         some buisiness logic and utility classes.
     </description>
 
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>http://jcenter.bintray.com/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.11</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- *** MongoDB Driver *** -->
         <dependency>
