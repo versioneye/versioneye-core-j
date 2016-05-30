@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>versioneye-core-j</artifactId>
-    <version>3.1.0</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>versioneye-core-j</name>
@@ -29,6 +29,15 @@
         <developerConnection>scm:git:https://github.com/versioneye/versioneye-core-j.git</developerConnection>
         <url>https://github.com/versioneye/versioneye-core-j.git</url>
     </scm>
+
+    <developers>
+      <developer>
+        <name>Robert Reiz</name>
+        <id>reiz</id>
+        <organization>VersionEye</organization>
+        <organizationUrl>https://www.VersionEye.com</organizationUrl>
+      </developer>
+    </developers>
 
     <description>
         This is the java implementation of the VersionEye core services. It contains
@@ -116,5 +125,64 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+      <plugins>
+
+        <plugin>
+          <groupId>com.versioneye</groupId>
+          <artifactId>versioneye-maven-plugin</artifactId>
+          <version>3.9.2</version>
+        </plugin>
+
+        <!--http://central.sonatype.org/pages/apache-maven.html-->
+        <!--mvn clean deploy -Dgpg.passphrase=-->
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.7</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
+
+
+        <!-- mvn gpg:sign -->
+        <!-- mvn gpg:sign-and-deploy-file -->
+        <!-- mvn clean deploy -Dgpg.passphrase=my_secret_passphrase -->
+        <!-- mvn clean install -Dgpg.passphrase=my_secret_passphrase -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <executions>
+              <execution>
+                  <id>sign-artifacts</id>
+                  <phase>verify</phase>
+                  <goals>
+                      <goal>sign</goal>
+                  </goals>
+              </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+      </plugins>
+    </build>
 
 </project>
