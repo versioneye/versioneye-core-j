@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+       default-autowire="byName">
+
+    <util:properties id="mongo" location="classpath:mongo.properties"/>
+
+    <bean id="mongoDb" class="versioneye.persistence.mongodb.MongoDB" scope="singleton" >
+        <property name="dbname" value="#{mongo['dbname']}" />
+        <property name="host" value="#{mongo['host']}" />
+        <property name="port" value="#{mongo['port']}" />
+        <property name="host2" value="#{mongo['host2']}" />
+        <property name="port2" value="#{mongo['port2']}" />
+        <property name="host3" value="#{mongo['host3']}" />
+        <property name="port3" value="#{mongo['port3']}" />
+        <property name="username" value="#{mongo['username']}" />
+        <property name="password" value="#{mongo['password']}" />
+    </bean>
+
+    <bean id="archiveService"      class="versioneye.service.ArchiveService" />
+    <bean id="dependencyService"   class="versioneye.service.DependencyService" />
+    <bean id="developerService"    class="versioneye.service.DeveloperService" />
+    <bean id="productService"      class="versioneye.service.ProductService" />
+    <bean id="versionLinkService"  class="versioneye.service.VersionLinkService" />
+    <bean id="licenseService"      class="versioneye.service.LicenseService" />
+
+    <bean id="httpUtils"           class="versioneye.utils.HttpUtils" />
+    <bean id="logUtils"            class="versioneye.utils.LogUtils" />
+
+    <bean id="productDao"          class="versioneye.persistence.mongodb.ProductDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="globalSettingDao"    class="versioneye.persistence.mongodb.GlobalSettingDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="mavenRepostoryDao"   class="versioneye.persistence.mongodb.MavenRepositoryDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="productResourceDao"          class="versioneye.persistence.mongodb.ProductResourceDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="dependencyDao"          class="versioneye.persistence.mongodb.DependencyDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="licenseDao"          class="versioneye.persistence.mongodb.LicenseDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="versionarchiveDao"          class="versioneye.persistence.mongodb.VersionarchiveDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="versionlinkDao"          class="versioneye.persistence.mongodb.VersionlinkDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="versionchangeDao"          class="versioneye.persistence.mongodb.VersionchangeDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="crawleDao"           class="versioneye.persistence.mongodb.CrawleDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="errorDao"           class="versioneye.persistence.mongodb.ErrorDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="versionEyeXmlDao"           class="versioneye.persistence.mongodb.VersionEyeXmlDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="notificationDao"     class="versioneye.persistence.mongodb.NotificationDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="userDao"             class="versioneye.persistence.mongodb.UserDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="newestDao"             class="versioneye.persistence.mongodb.NewestDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="developerDao"             class="versioneye.persistence.mongodb.DeveloperDao" >
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+    <bean id="projectdependencyDao" class="versioneye.persistence.mongodb.ProjectdependencyDao">
+        <property name="mongoDB" ref="mongoDb" />
+    </bean>
+
+    <bean id="domainFactory"       class="versioneye.persistence.DomainFactory" />
+
+</beans>
