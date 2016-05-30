@@ -171,7 +171,7 @@
               <execution>
                   <id>sign-artifacts</id>
                   <phase>verify</phase>
-                  <goals>åid
+                  <goals>
                       <goal>sign</goal>
                   </goals>
               </execution>
