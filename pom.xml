@@ -5,7 +5,7 @@
 
     <groupId>com.versioneye</groupId>
     <artifactId>versioneye-core-j</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
 
     <name>versioneye-core-j</name>
@@ -67,12 +67,6 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>3.2.2</version>
-        </dependency>
-
-        <dependency>
-          <groupId>versioneye</groupId>
-          <artifactId>j-versioneye-persistence</artifactId>
-          <version>2.1.0</version>
         </dependency>
 
         <!-- For Base64 encoding -->
@@ -177,7 +171,7 @@
               <execution>
                   <id>sign-artifacts</id>
                   <phase>verify</phase>
-                  <goals>
+                  <goals>åid
                       <goal>sign</goal>
                   </goals>
               </execution>
@@ -193,6 +187,19 @@
               <id>attach-sources</id>
               <goals>
                 <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
               </goals>
             </execution>
           </executions>
