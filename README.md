@@ -1,17 +1,7 @@
-[![Dependency Status](https://www.versioneye.com/user/projects/56d6a5e1fa908e000a35f415/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56d6a5e1fa908e000a35f415)
 
-# Crawl_J
+# versioneye-core-j
 
-This repository contains the Maven crawlers for [VersionEye](https://www.VersionEye.com)
-and requires Maven 3.3.9. This project contains:
-
- - A Maven Crawler which works via HTML. It can crawl the HTML representation of a Maven repository
- - RabbitMQ consumers/workers for HTML/Index crawlers.
-
-There is always 1 crawler which walks ever through a maven index or it's HTML representation
-but doesn't download and parse any pom.xml files. It only sends the coordinates to a Queue (RabbitMQ).
-There can be N consumers/workers which do the heavy lifting, the downloading and parsing of
-the pom.xml files. That way it's relatively easy to scale the crawling processes.
+This project contains the persistence and services for VersionEye implemented in Java.
 
 ## Start the backend services for VersionEye
 
@@ -42,34 +32,8 @@ docker-compose down
 ## MongoDB Config
 
 As primary database we are using MongoDB. To make this project work you need to configure
-the MongoDB connection in `versioneye_maven_crawler/src/main/resources/mongo.properties`.
+the MongoDB connection in `src/test/resources/mongo.properties`.
 If you run MongoDB as a single instance, only fill out the first 3 lines.
-
-## RabbitMQ Config
-
-To configure the RabbitMQ connection adjust the settings in
-`versioneye_maven_crawler/srm/main/resources/settings.properties`.
-
-## maven_index_worker
-
-To start the RabbitMQ consumer/worker for the maven indexer run this command:
-
-```
-mvn crawl:maven_index_worker
-```
-
-That will spin up a RabbitMQ worker which waits for messages from the `maven-indexer`
-project.
-
-## html_worker
-
-To start the RabbitMQ consumer/workers for the maven HTML crawler run this command:
-
-```
-mvn crawl:html_worker
-```
-
-That will spin up a RabbitMQ worker which waits for messages from the HTML index crawler.
 
 ## Support
 

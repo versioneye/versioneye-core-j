@@ -17,6 +17,19 @@
 
     <url>https://www.versioneye.com</url>
 
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>http://choosealicense.com/licenses/mit/</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/versioneye/versioneye-core-j.git</connection>
+        <developerConnection>scm:git:https://github.com/versioneye/versioneye-core-j.git</developerConnection>
+        <url>https://github.com/versioneye/versioneye-core-j.git</url>
+    </scm>
+
     <description>
         This is the java implementation of the VersionEye core services. It contains
         some buisiness logic and utility classes.
