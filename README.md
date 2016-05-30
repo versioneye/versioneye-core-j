@@ -35,6 +35,14 @@ As primary database we are using MongoDB. To make this project work you need to 
 the MongoDB connection in `src/test/resources/mongo.properties`.
 If you run MongoDB as a single instance, only fill out the first 3 lines.
 
+## Tests
+
+Run the tests like this:
+
+```
+mvn clean test
+```
+
 ## Support
 
 For commercial support send a message to `support@versioneye.com`.
