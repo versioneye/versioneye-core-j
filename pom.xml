@@ -58,7 +58,7 @@
       <encoding>UTF-8</encoding>
       <surefireVersion>2.19.1</surefireVersion>
       <javaVersion>1.6</javaVersion>
-      <spring.version>4.2.6.RELEASE</spring.version>
+      <spring.version>4.3.0.RELEASE</spring.version>
       <testngVersion>6.9.11</testngVersion>
     </properties>
 
@@ -114,19 +114,19 @@
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.9.3</version>
+            <version>2.9.4</version>
         </dependency>
 
         <!-- *** Log4J *** -->
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-core</artifactId>
-          <version>2.5</version>
+          <version>2.6.1</version>
         </dependency>
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-api</artifactId>
-          <version>2.5</version>
+          <version>2.6.1</version>
         </dependency>
 
         <dependency>
@@ -156,6 +156,9 @@
           <groupId>com.versioneye</groupId>
           <artifactId>versioneye-maven-plugin</artifactId>
           <version>3.9.2</version>
+          <configuration>
+            <organisation>versioneye</organisation>
+          </configuration>
         </plugin>
 
         <!--http://central.sonatype.org/pages/apache-maven.html-->
