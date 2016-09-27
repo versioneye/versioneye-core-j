@@ -58,8 +58,8 @@
       <encoding>UTF-8</encoding>
       <surefireVersion>2.19.1</surefireVersion>
       <javaVersion>1.6</javaVersion>
-      <spring.version>4.3.2.RELEASE</spring.version>
-      <testngVersion>6.9.12</testngVersion>
+      <spring.version>4.3.3.RELEASE</spring.version>
+      <testngVersion>6.9.13.6</testngVersion>
     </properties>
 
     <dependencies>
