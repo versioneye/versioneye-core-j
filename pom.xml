@@ -58,7 +58,7 @@
       <encoding>UTF-8</encoding>
       <surefireVersion>2.19.1</surefireVersion>
       <javaVersion>1.6</javaVersion>
-      <spring.version>4.3.1.RELEASE</spring.version>
+      <spring.version>4.3.2.RELEASE</spring.version>
       <testngVersion>6.9.12</testngVersion>
     </properties>
 
@@ -81,7 +81,7 @@
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
-            <version>3.2.2</version>
+            <version>3.3.0</version>
         </dependency>
 
         <!-- For Base64 encoding -->
@@ -155,7 +155,7 @@
         <plugin>
           <groupId>com.versioneye</groupId>
           <artifactId>versioneye-maven-plugin</artifactId>
-          <version>3.10.0</version>
+          <version>3.10.2</version>
           <configuration>
             <organisation>versioneye</organisation>
           </configuration>
