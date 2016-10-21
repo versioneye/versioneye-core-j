@@ -178,6 +178,7 @@
         <!-- mvn gpg:sign -->
         <!-- mvn gpg:sign-and-deploy-file -->
         <!-- mvn clean deploy -Dgpg.passphrase=my_secret_passphrase -->
+        <!-- mvn clean -Dmaven.test.skip=true deploy -Dgpg.passphrase=my_secret_passphrase -->
         <!-- mvn clean install -Dgpg.passphrase=my_secret_passphrase -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
