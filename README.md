@@ -1,4 +1,4 @@
-[![Dependency Status](https://www.versioneye.com/user/projects/575e949800863f000db9568a/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/575e949800863f000db9568a)
+[![Dependency Status](https://www.versioneye.com/user/projects/580a24faba9252000e2b2836/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/580a24faba9252000e2b2836)
 
 # versioneye-core-j
 
