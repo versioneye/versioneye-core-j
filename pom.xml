@@ -5,7 +5,7 @@
 
     <groupId>com.versioneye</groupId>
     <artifactId>versioneye-core-j</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
     <packaging>jar</packaging>
 
     <name>versioneye-core-j</name>
@@ -178,9 +178,9 @@
         <!-- mvn gpg:sign -->
         <!-- mvn gpg:sign-and-deploy-file -->
         <!-- mvn clean deploy -Dgpg.passphrase=my_secret_passphrase -->
-        <!-- mvn clean -Dmaven.test.skip=true deploy -Dgpg.passphrase=my_secret_passphrase -->
+        <!-- mvn clean deploy -Dmaven.test.skip=true -Dgpg.passphrase=my_secret_passphrase -->
         <!-- mvn clean install -Dgpg.passphrase=my_secret_passphrase -->
-        <!-- mvn clean -Dmaven.test.skip=true install -Dgpg.passphrase=my_secret_passphrase -->
+        <!-- mvn clean install -Dmaven.test.skip=true -Dgpg.passphrase=my_secret_passphrase -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
