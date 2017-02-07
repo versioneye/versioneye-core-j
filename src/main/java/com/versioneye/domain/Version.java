@@ -22,6 +22,9 @@ public class Version {
     public static final String VERSIONS = "versions";
     public static final String RELEASED_STRING = "released_string";
     public static final String RELEASED_AT = "released_at";
+    public static final String SHA1 = "sha1";
+    public static final String SHA256 = "sha256";
+    public static final String SHA512 = "sha512";
 
     private String version;
     private String link;
@@ -38,6 +41,10 @@ public class Version {
     private Date createdAt = new Date();
     private Date updatedAt = new Date();
     private String type;
+    private String sha1;
+    private String sha256;
+    private String sha512;
+
 
     private HashMap<String, Versionlink> links;
     private HashMap<String, Versionarchive> archives;
@@ -57,6 +64,9 @@ public class Version {
         dbo.put(CREATED_AT, createdAt);
         dbo.put(UPDATED_AT, updatedAt);
         dbo.put(RELEASED_AT, released_at);
+        dbo.put(SHA1, sha1);
+        dbo.put(SHA256, sha256);
+        dbo.put(SHA512, sha512);
         return dbo;
     }
 
@@ -222,5 +232,29 @@ public class Version {
 
     public void setArchives(HashMap<String, Versionarchive> archives) {
         this.archives = archives;
+    }
+
+    public String getSha1() {
+        return sha1;
+    }
+
+    public void setSha1(String sha1) {
+        this.sha1 = sha1;
+    }
+
+    public String getSha256() {
+        return sha256;
+    }
+
+    public void setSha256(String sha256) {
+        this.sha256 = sha256;
+    }
+
+    public String getSha512() {
+        return sha512;
+    }
+
+    public void setSha512(String sha512) {
+        this.sha512 = sha512;
     }
 }
