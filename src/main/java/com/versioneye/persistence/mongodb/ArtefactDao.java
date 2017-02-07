@@ -32,4 +32,12 @@ public class ArtefactDao implements IArtefactDao {
         return artefact;
     }
 
+    public MongoDB getMongoDB() {
+        return mongoDB;
+    }
+
+    public void setMongoDB(MongoDB mongoDB) {
+        this.mongoDB = mongoDB;
+    }
+
 }
