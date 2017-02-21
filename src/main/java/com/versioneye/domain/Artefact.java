@@ -22,6 +22,7 @@ public class Artefact {
     public static final String PROD_TYPE = "prod_type";
     public static final String SHA_VALUE = "sha_value";
     public static final String SHA_METHOD = "sha_method";
+    public static final String FILE = "file";
 
     public static final String CREATED_AT = "created_at";
     public static final String UPDATED_AT = "updated_at";
@@ -37,6 +38,7 @@ public class Artefact {
     private String prod_type;
     private String sha_value;
     private String sha_method;
+    private String file;
     private Date createdAt = new Date();
     private Date updatedAt;
 
@@ -54,6 +56,7 @@ public class Artefact {
         doc.put(SHA_METHOD, sha_method);
         doc.put(CREATED_AT, createdAt);
         doc.put(UPDATED_AT, updatedAt);
+        doc.put(FILE, file);
         return doc;
     }
 
@@ -71,6 +74,7 @@ public class Artefact {
         sha_method = (String) object.get(SHA_METHOD);
         createdAt = (Date) object.get(CREATED_AT);
         updatedAt = (Date) object.get(UPDATED_AT);
+        file = (String) object.get(FILE);
     }
 
     public String getLanguage() {
@@ -175,5 +179,13 @@ public class Artefact {
 
     public void setSha_method(String sha_method) {
         this.sha_method = sha_method;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
     }
 }
