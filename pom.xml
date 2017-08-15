@@ -58,7 +58,7 @@
       <encoding>UTF-8</encoding>
       <surefireVersion>2.19.1</surefireVersion>
       <javaVersion>1.6</javaVersion>
-      <spring.version>4.3.8.RELEASE</spring.version>
+      <spring.version>4.3.10.RELEASE</spring.version>
     </properties>
 
     <dependencies>
@@ -80,7 +80,7 @@
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver</artifactId>
-            <version>3.4.2</version>
+            <version>3.5.0</version>
         </dependency>
 
         <!-- For Base64 encoding -->
@@ -94,7 +94,7 @@
         <dependency>
           <groupId>net.sourceforge.htmlcleaner</groupId>
           <artifactId>htmlcleaner</artifactId>
-          <version>2.19</version>
+          <version>2.21</version>
         </dependency>
 
         <!-- *** JSON Mapper *** -->
@@ -154,7 +154,7 @@
         <plugin>
           <groupId>com.versioneye</groupId>
           <artifactId>versioneye-maven-plugin</artifactId>
-          <version>3.11.2</version>
+          <version>3.11.4</version>
           <configuration>
             <organisation>versioneye</organisation>
           </configuration>
