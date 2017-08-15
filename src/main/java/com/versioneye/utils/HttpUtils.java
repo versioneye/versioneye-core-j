@@ -28,13 +28,15 @@ import java.util.regex.Pattern;
 public class HttpUtils {
 
     private final HtmlCleaner cleaner = new HtmlCleaner();
-    public static String userAgent = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2";
+    private static String userAgent = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2";
+
 
     public TagNode getSingleNode(Object[] objects){
         if (objects == null || objects.length == 0)
             return null;
         return (TagNode) objects[0];
     }
+
 
     public String getHttpResp(String address) throws Exception {
         System.setProperty("http.agent", userAgent);
@@ -51,11 +53,11 @@ public class HttpUtils {
             return sb.toString();
         }
 
+        String line;
         InputStream instream = entity.getContent();
-        String line = "";
         sb = new StringBuffer();
         BufferedReader input =  new BufferedReader(new InputStreamReader( instream ) );
-        while((line = input.readLine())!=null)
+        while((line = input.readLine()) != null)
             sb.append(line);
         input.close();
         instream.close();
@@ -63,9 +65,11 @@ public class HttpUtils {
         return sb.toString();
     }
 
+
     public String getHttpResponse(String address) throws Exception{
         return getHttpResp(address);
     }
+
 
     public String getHttpResponse(String address, String username, String password) throws Exception {
         System.setProperty("http.agent", userAgent);
@@ -84,13 +88,14 @@ public class HttpUtils {
             return null;
         }
         String line = "";
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         BufferedReader input =  new BufferedReader(new InputStreamReader(conn.getInputStream()) );
         while((line = input.readLine())!=null)
             sb.append(line);
         input.close();
         return sb.toString();
     }
+
 
     public static int getResponseCode(String urlString) throws MalformedURLException, IOException {
         System.setProperty("http.agent", userAgent);
@@ -103,9 +108,11 @@ public class HttpUtils {
         return huc.getResponseCode();
     }
 
+
     public TagNode getPageForResource(String resource) throws Exception {
         return getPageForResource(resource, null, null);
     }
+
 
     public TagNode getPageForResource(String resource, String username, String password) throws Exception {
         String response = getHttpResponse(resource, username, password);
@@ -118,6 +125,7 @@ public class HttpUtils {
         return null;
     }
 
+
     public Object[] getObjectsFromPage(String resource, String xpath) throws Exception {
         System.setProperty("http.agent", userAgent);
         URL url = new URL(resource);
@@ -125,13 +133,14 @@ public class HttpUtils {
         conn.setConnectTimeout(10000); // 10 seconds time out
         conn.setRequestProperty("User-Agent", userAgent);
         TagNode page = cleaner.clean(conn.getInputStream());
-        Object[] objects = page.evaluateXPath("//table[@class=\"list\"]/tbody/tr/td/a");
-        return objects;
+        return page.evaluateXPath( xpath );
     }
+
 
     public Reader getResultReader(String resource) throws Exception {
         return getResultReader(resource, null, null);
     }
+
 
     public Reader getResultReader(String resource, String username, String password) throws Exception {
         System.setProperty("http.agent", userAgent);
@@ -148,6 +157,7 @@ public class HttpUtils {
         return new InputStreamReader(connection.getInputStream());
     }
 
+
     public String getSingleValue(Object[] objects, HashMap<String, String> properties){
         if (objects == null || objects.length == 0)
             return null;
@@ -159,6 +169,7 @@ public class HttpUtils {
             value = checkVariables(value, properties);
         return value;
     }
+
 
     public String checkVariables(String val, HashMap<String, String> properties){
         if (val == null || !val.startsWith("${"))
