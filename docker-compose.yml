@@ -1,17 +1,17 @@
 
 # Primary DB. The single source of truth!
 mongodb:
-  image: versioneye/mongodb:3.2.6
+  image: versioneye/mongodb:3.4.6
   container_name: mongodb
   restart: always
   ports:
    - "27017:27017"
-  # volumes:
+  #volumes:
   #  - /mnt/mongodb:/data
 
 # AMQ Message Server
 rabbitmq:
-  image: reiz/rabbitmq:3.4.2
+  image: versioneye/rabbitmq:3.6.10-1
   container_name: rabbitmq
   restart: always
   ports:
@@ -19,7 +19,7 @@ rabbitmq:
 
 # Cache
 memcached:
-  image: reiz/memcached:1.4.14
+  image: versioneye/memcached:1.4.33-1ubuntu2
   container_name: memcached
   restart: always
   ports:
