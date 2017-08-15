@@ -32,7 +32,7 @@ public class MongoDB {
     }
 
     public DB getDb(){
-        if (db == null || host == null || host.isEmpty() || host.trim().equals("localhost")){
+        if (db == null || host == null || host.isEmpty() ){
             initDB();
         }
         return db;
@@ -121,11 +121,8 @@ public class MongoDB {
                     mongo = new MongoClient(sa);
                 }
                 db = mongo.getDB(dbname);
-                db.setReadPreference(ReadPreference.primary());
                 System.out.println("Connected to Single Node " + host + ":" + port);
             }
-
-            System.out.println("getDB .. db is null .. create new db connection. MongoDB: " + this.toString() + " db: " + db.toString() );
         } catch (Exception ex){
             ex.printStackTrace();
         }
