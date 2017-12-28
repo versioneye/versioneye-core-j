@@ -57,8 +57,8 @@ public class DependencyService {
 
     public void createDependencyIfNotExist(Dependency dependency){
         updateKnownStatus(dependency);
-        boolean existAlready = dependencyDao.existAlready(dependency.getLanguage(), dependency.getProdKey(),
-                dependency.getProdVersion(), dependency.getDepProdKey(), dependency.getVersion());
+        boolean existAlready = dependencyDao.existAlready(dependency.getLanguage(), dependency.getProdKey().toLowerCase(),
+                dependency.getProdVersion(), dependency.getDepProdKey().toLowerCase(), dependency.getVersion());
         if (!existAlready){
             dependencyDao.create(dependency);
         }
