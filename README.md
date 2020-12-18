@@ -2,7 +2,7 @@
 
 # versioneye-core-j
 
-This project contains the persistence and services for VersionEye implemented in Java.
+This project contains the persistence and services for VersionEye implemented in Java. Just testing. 
 
 ## Start the backend services for VersionEye
 
